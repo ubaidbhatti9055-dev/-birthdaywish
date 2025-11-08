@@ -17,30 +17,6 @@
     rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <style>
-    .card2-content h2 {
-      font-size: 1rem;
-      line-height: 1.6;
-      padding: 1rem;
-      margin: 0;
-      text-align: justify;
-      font-weight: normal;
-      max-height: 60vh;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-    
-    @media (max-width: 768px) {
-      .card2-content h2 {
-        font-size: 0.9rem;
-        padding: 0.75rem;
-      }
-      .boxMail-container {
-        width: 90%;
-        margin: auto;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -165,8 +141,10 @@
         </div>
         <div class="card2">
           <div class="card2-content">
+            
             <h2>
-              Happy Birthday Madam Ji. The day you come into my life I was not really much attached to you but day by day you became close to my heart. And now you are truly my Madam Ji. You're always welcome 🤗 you can talk anytime you want to talk specially those which you can't say to others. Aaj ka din utna hi khaas hai jitni aap khud hain. Hamesha muskurati rahiye, kiu ki jab aap hansti hain na, din apne-aap behtar lagta hai. Khushiyan aapke kadam choomen — aaj bhi, hamesha bhi. 
+              Happy Birthday Madam Ji. The day you come into my life I was not much attached to you but day by day you became close to my heart. And now you are truly my Madam Ji. You're always welcome you can talk anytime you want to talk specially those which you can't say to others. Aaj ka din utna hi khaas hai jitni aap khud hain. Hamesha muskurati rahiye, kyunki jab aap hansti hain na, din apne-aap behtar lagta hai. Khushiyan aapke kadam choomen — aaj bhi, hamesha bhi.
+              My love. You are a very special girl. I always silently thank you for coming into my life. Today, I wish you all the best, lots of health, and lots of joy. I always hope we will celebrate many more birthdays like this together. Happy birthday to you.💕. 
             </h2>
             <div class="imageCute2">
               <img src="cute2.png" alt="">
@@ -188,7 +166,7 @@
     let currentIndexLetter = 0;
     let currentIndexTitle = 0;
     let date__of__birth = document.querySelector(".date__of__birth span");
-    let text__letter = document.querySelector(".card2-content h2");
+    let text__letter = document.querySelector(".text__letter p");
 
     // faster (3x): originally 12000ms, now 4000ms
     setTimeout(function () {
@@ -210,9 +188,9 @@
     var intervalTitle;
 
     $("#btn__letter").on("click", function () {
-      $(".boxMail").addClass('active');
+      $(".box__letter").slideDown()
       setTimeout(function () {
-        $(".boxMail-container").slideDown();
+        $(".letter__border").slideDown();
       }, 333); // originally 1000
 
       setTimeout(function () {
@@ -249,8 +227,8 @@
           } else {
             clearInterval(intervalContent)
           }
-        }, 10); // Made faster: was 16ms, now 10ms
-      }, 1000); // Reduced delay: was 2000ms, now 1000ms
+        }, 16); // originally 50
+      }, 2000); // originally 6000
     });
 
     $(".close").on("click", function () {
