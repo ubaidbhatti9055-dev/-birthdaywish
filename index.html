@@ -81,26 +81,6 @@
           </div>
         </div>
 
-        <div class="cricle">
-          <div class="text__cricle">
-            <span style="--i: 1;">h</span>
-            <span style="--i: 2;">a</span>
-            <span style="--i: 3;">p</span>
-            <span style="--i: 4;">p</span>
-            <span style="--i: 5;">y</span>
-            <span style="--i: 6;">-</span>
-            <span style="--i: 7;">b</span>
-            <span style="--i: 8;">i</span>
-            <span style="--i: 9;">r</span>
-            <span style="--i: 10;">t</span>
-            <span style="--i: 11;">h</span>
-            <span style="--i: 12;">d</span>
-            <span style="--i: 13;">a</span>
-            <span style="--i: 14;">y</span>
-            <span style="--i: 15;">-</span>
-          </div>
-          <i class="fa-solid fa-heart"></i>
-        </div>
       </div>
     </div>
 
@@ -184,17 +164,17 @@
       }, 33); // originally 100ms
     }, 4000);
 
-    var intervalContent;
-    var intervalTitle;
-
+    // Simplified open/close handlers: show card instantly with no typing/delay animations
     $("#btn__letter").on("click", function () {
+      // mark boxMail active so CSS shows content immediately (overrides hover-delays)
       $(".boxMail").addClass('active');
-      $(".boxMail-container").slideDown();
+      // ensure the container is visible (no jQuery slide animations)
+      $(".boxMail .boxMail-container").css({"display":"flex"});
     });
 
-    $(".close").on("click", function () {
+    // Close handler: remove active state to hide card immediately
+    $(document).on('click', '.fa-xmark', function () {
       $(".boxMail").removeClass('active');
-      $(".boxMail-container").slideUp();
     });
 
     let mailBox = document.querySelector('.mail')
