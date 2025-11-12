@@ -188,63 +188,13 @@
     var intervalTitle;
 
     $("#btn__letter").on("click", function () {
-      $(".box__letter").slideDown()
-      setTimeout(function () {
-        $(".letter__border").slideDown();
-      }, 333); // originally 1000
-
-      setTimeout(function () {
-        intervalTitle = setInterval(function () {
-          if (currentIndexTitle < charArrTitle.length) {
-            document.querySelector(".title__letter").textContent += charArrTitle[currentIndexTitle];
-            let i = document.createElement("i");
-            i.className = "fa-solid fa-heart"
-            document.querySelector(".title__letter").appendChild(i)
-            currentIndexTitle++;
-          } else {
-            clearInterval(intervalTitle)
-          }
-        }, 33); // originally 100
-      }, 666); // originally 2000
-
-      setTimeout(function () {
-        document.querySelector("#heart__letter").classList.add("animationOp");
-        document.querySelector(".love__img").classList.add("animationOp");
-        document.querySelector("#mewmew").classList.add("animationOp");
-      }, 933); // originally 2800
-
-      setTimeout(function () {
-        document.querySelectorAll(".heart").forEach((item) => {
-          item.classList.add("animation")
-        })
-      }, 1166); // originally 3500
-
-      setTimeout(function () {
-        intervalContent = setInterval(function () {
-          if (currentIndexLetter < charArrDateLetter.length) {
-            text__letter.textContent += charArrDateLetter[currentIndexLetter];
-            currentIndexLetter++;
-          } else {
-            clearInterval(intervalContent)
-          }
-        }, 16); // originally 50
-      }, 2000); // originally 6000
+      $(".boxMail").addClass('active');
+      $(".boxMail-container").slideDown();
     });
 
     $(".close").on("click", function () {
-      clearInterval(intervalContent)
-      document.querySelector(".title__letter").textContent = "";
-      text__letter.textContent = "";
-      currentIndexLetter = 0
-      currentIndexTitle = 0
-      document.querySelector("#heart__letter").classList.remove("animationOp");
-      document.querySelector(".love__img").classList.remove("animationOp");
-      document.querySelector("#mewmew").classList.remove("animationOp");
-      document.querySelectorAll(".heart").forEach((item) => {
-        item.classList.remove("animation")
-      })
-      $(".box__letter").slideUp();
-      $(".letter__border").slideUp();
+      $(".boxMail").removeClass('active');
+      $(".boxMail-container").slideUp();
     });
 
     let mailBox = document.querySelector('.mail')
