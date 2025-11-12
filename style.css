@@ -1023,3 +1023,19 @@ body {
     color: white;
     z-index: 10000000000000000;
 }
+
+/* When the boxMail is opened, show card text immediately (disable delayed hover animations)
+   This ensures text is visible instantly on mobile/desktop when the card opens. */
+.boxMail.active .boxMail-container .card2 h3,
+.boxMail.active .boxMail-container .card2 h2,
+.boxMail.active .boxMail-container .card2 .card2-content .imageCute2 {
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: none !important;
+    transition: none !important;
+}
+
+/* Also make sure card transforms don't rely on hover to reveal content */
+.boxMail.active .boxMail-container {
+    transform: scale(1) !important;
+}
